@@ -1,0 +1,49 @@
+<section *ngIf="add">
+    <h2 mat-dialog-title>Thêm tỉnh/thành phố</h2>
+    <mat-dialog-content class="mat-typography">
+        <form class="example-form add-grid-form" [formGroup]="Form">
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Tỉnh/Thành phố (*)</mat-label>
+                <input matInput formControlName="name">
+            </mat-form-field>
+            <!-- <div class="form-group">
+                <label for="careersName">Tỉnh/Thành phố</label>
+                <input type="text" class="form-control" formControlName="name">
+            </div> -->
+        </form>
+    </mat-dialog-content>
+    <mat-dialog-actions align="end">
+        <button mat-button [mat-dialog-close]="true" (click)="addCity()" cdkFocusInitial> Thêm </button>
+        <button mat-button mat-dialog-close>Thoát</button>
+    </mat-dialog-actions>
+</section>
+
+<section *ngIf="edit">
+    <h2 mat-dialog-title>Sửa thông tin tỉnh/thành phố</h2>
+    <mat-dialog-content class="mat-typography">
+        <form class="example-form add-grid-form" [formGroup]="Form">
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Tỉnh/Thành phố (*)</mat-label>
+                <input matInput formControlName="name">
+            </mat-form-field>
+            <!-- <div class="form-group">
+                <label for="careersName">Tỉnh/Thành phố</label>
+                <input type="text" class="form-control" formControlName="name">
+            </div> -->
+        </form>
+    </mat-dialog-content>
+    <mat-dialog-actions align="end">
+        <button mat-button [mat-dialog-close]="true" (click)="editCity()" cdkFocusInitial> Lưu </button>
+        <button mat-button mat-dialog-close> Thoát </button>
+    </mat-dialog-actions>
+</section>
+
+<section *ngIf="delete">
+    <h2 mat-dialog-title>Xóa tỉnh/thành phố</h2>
+    <mat-dialog-content class="mat-typography">
+    </mat-dialog-content>
+    <mat-dialog-actions align="end">
+        <button mat-button (click)="deleteCity()" mat-dialog-close> Xóa </button>
+        <button mat-button mat-dialog-close>Thoát</button>
+    </mat-dialog-actions>
+</section>

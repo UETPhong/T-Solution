@@ -1,0 +1,129 @@
+<section *ngIf="add">
+    <h2 mat-dialog-title>Thêm ứng viên</h2>
+    <mat-dialog-content class="mat-typography">
+
+        <form [formGroup]="Form">
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Họ tên (*)</mat-label>
+                <input matInput formControlName="full_name">
+            </mat-form-field>
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Email (*)</mat-label>
+                <input matInput formControlName="email">
+            </mat-form-field>
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Số điện thoại (*)</mat-label>
+                <input matInput formControlName="number">
+            </mat-form-field>
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Vị trí ứng tuyển (*)</mat-label>
+                <mat-select formControlName="address">
+                    <mat-option *ngFor="let option of listRecruitment" [value]="option.title">
+                        {{option.title}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+            <!-- <div class="form-group">
+                <label for="careersName">Họ tên</label>
+                <input type="text" class="form-control" formControlName="full_name">
+            </div>
+            <div class="form-group">
+                <label for="careersName">Email</label>
+                <input type="text" class="form-control" formControlName="email">
+            </div>
+            <div class="form-group">
+                <label for="careersName">Số điện thoại</label>
+                <input type="text" class="form-control" formControlName="number">
+            </div>
+            <div class="form-group ">
+                <label for="careersName">Vị trí ứng tuyển</label>
+                <select class="custom-select" formControlName="address">
+                    <option *ngFor="let r of listRecruitment" [value]="r.title">{{r.title}}</option>
+                </select>
+            </div> -->
+            <div class="form-group ">
+                <label for="careersName">CV (*)</label><br>
+                <input type="file" (change)="handleFile($event)" accept=".pdf, .doc, .docx">
+                <br>
+                <i>* .doc; .docx; .pdf và kích thước < 2MB</i>
+            </div>
+        </form>
+
+    </mat-dialog-content>
+    <mat-dialog-actions align="end">
+        <button mat-button (click)="addCandidate()" cdkFocusInitial> Thêm </button>
+        <button mat-button mat-dialog-close>Thoát</button>
+    </mat-dialog-actions>
+</section>
+
+<section *ngIf="edit">
+    <h2 mat-dialog-title>Sửa thông tin ứng viên</h2>
+    <mat-dialog-content class="mat-typography">
+        <form class="example-form" [formGroup]="Form">
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Họ tên (*)</mat-label>
+                <input matInput formControlName="full_name">
+            </mat-form-field>
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Email (*)</mat-label>
+                <input matInput formControlName="email">
+            </mat-form-field>
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Số điện thoại (*)</mat-label>
+                <input matInput formControlName="number">
+            </mat-form-field>
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Vị trí ứng tuyển (*)</mat-label>
+                <mat-select formControlName="address">
+                    <mat-option *ngFor="let option of listRecruitment" [value]="option.title">
+                        {{option.title}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+            <div class="form-group ">
+                <label for="careersName">CV (*)</label><br>
+                <input type="file" (change)="handleFile($event)" accept=".pdf, .doc, .docx">
+                <br>
+                <i>* .doc; .docx; .pdf và kích thước < 2MB</i>
+            </div>
+            <!-- <div class="form-group">
+                <label for="careersName">Họ tên</label>
+                <input type="text" class="form-control" formControlName="full_name">
+            </div>
+            <div class="form-group">
+                <label for="careersName">Email</label>
+                <input type="text" class="form-control" formControlName="email">
+            </div>
+            <div class="form-group">
+                <label for="careersName">Số điện thoại</label>
+                <input type="text" class="form-control" formControlName="number">
+            </div>
+            <div class="form-group ">
+                <label for="careersName">Vị trí ứng tuyển</label>
+                <select class="custom-select" formControlName="address">
+                    <option *ngFor="let r of listRecruitment" [value]="r.title">{{r.title}}</option>
+                </select>
+            </div>
+            <div class="form-group ">
+                <label for="careersName">CV</label><br>
+                <input type="file" (change)="handleFile($event)" accept=".pdf, .doc, .docx">
+                <br>
+                <i>* .doc; .docx; .pdf và kích thước < 2MB</i>
+            </div> -->
+        </form>
+    </mat-dialog-content>
+    <mat-dialog-actions align="end">
+        <button mat-button (click)="editCandidate()" cdkFocusInitial> Lưu </button>
+        <button mat-button mat-dialog-close> Thoát </button>
+    </mat-dialog-actions>
+</section>
+
+<section *ngIf="delete">
+    <h2 mat-dialog-title>Xóa ứng viên</h2>
+    <mat-dialog-content class="mat-typography">
+    </mat-dialog-content>
+    <mat-dialog-actions align="end">
+        <button mat-button (click)="deleteCandidate()" mat-dialog-close> Xóa </button>
+        <button mat-button mat-dialog-close>Thoát</button>
+    </mat-dialog-actions>
+</section>

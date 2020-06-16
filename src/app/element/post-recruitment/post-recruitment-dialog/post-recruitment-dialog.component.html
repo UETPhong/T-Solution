@@ -1,0 +1,313 @@
+<section *ngIf="add">
+    <h2 mat-dialog-title>Thêm bài viết</h2>
+    <mat-dialog-content class="mat-typography">
+        <form class=" example-form add-grid-form" [formGroup]="Form">
+
+
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Tiêu đề (*)</mat-label>
+                <input matInput formControlName="title">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Ngày hết hạn (*)</mat-label>
+                <input matInput [matDatepicker]="picker" formControlName="valid_date">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Số lượng (*)</mat-label>
+                <mat-select formControlName="quantity">
+                    <mat-option value="1">
+                        1
+                    </mat-option>
+                    <mat-option value="2">
+                        2
+                    </mat-option>
+                    <mat-option value="3">
+                        3
+                    </mat-option>
+                    <mat-option value="4">
+                        4
+                    </mat-option>
+                    <mat-option value="5">
+                        5
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Mức lương (*)</mat-label>
+                <mat-select formControlName="salary">
+                    <mat-option value="3-5 triệu">3-5 triệu</mat-option>
+                    <mat-option value="5-7 triệu">5-7 triệu</mat-option>
+                    <mat-option value="7-10 triệu">7-10 triệu</mat-option>
+                    <mat-option value="10-13 triệu">10-13 triệu</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Cấp độ công việc</mat-label>
+                <input matInput formControlName="job_level">
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Thành phố (*)</mat-label>
+                <mat-select formControlName="city_province_id">
+                    <mat-option *ngFor="let r of cityProvinces" [value]="r.id">
+                        {{r.name}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Loại nghành nghề</mat-label>
+                <mat-select formControlName="career_id">
+                    <mat-option *ngFor="let r of career" [value]="r.id">
+                        {{r.name}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+
+
+
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Hình thức làm việc </mat-label>
+                <mat-select formControlName="form_of_work">
+                    <mat-option value="Cộng tác viên">
+                        Cộng tác viên
+                    </mat-option>
+                    <mat-option value="Thử việc">
+                        Thử việc
+                    </mat-option>
+                    <mat-option value="Nhân viên chính thức">
+                        Nhân viên chính thức
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+
+
+
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Yêu cầu kinh nghiệm</mat-label>
+                <mat-select formControlName="experience_required">
+                    <mat-option value="1">
+                        1 năm
+                    </mat-option>
+                    <mat-option value="2">
+                        2 năm
+                    </mat-option>
+                    <mat-option value="3">
+                        3 năm
+                    </mat-option>
+                    <mat-option value="4">
+                        4 năm
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Trình độ học vấn</mat-label>
+                <mat-select formControlName="education">
+                    <mat-option value="Không">
+                        Không
+                    </mat-option>
+                    <mat-option value="Cao đẳng">
+                        Cao đẳng
+                    </mat-option>
+                    <mat-option value="Đại học">
+                        Đại học
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width" style="grid-column: 1/5;" appearance="outline">
+                <mat-label>Yêu cầu công việc (*)</mat-label>
+                <textarea matInput placeholder="Ex. It makes me feel..." formControlName="work_required"></textarea>
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width" style="grid-column: 1/5;" appearance="outline">
+                <mat-label>Quyền lợi (*)</mat-label>
+                <textarea matInput placeholder="Ex. It makes me feel..." formControlName="entitlements"></textarea>
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width" style="grid-column: 1/5;" appearance="outline">
+                <mat-label>Liên hệ (*)</mat-label>
+                <textarea matInput placeholder="Ex. It makes me feel..." formControlName="contact"></textarea>
+            </mat-form-field>
+
+            <div class="form-group grid-description" style="grid-column: 1/5;">
+                <label for="exampleFormControlInput9">Mô tả (*)</label>
+                <br>
+                <ckeditor [(ngModel)]="Form.value.description" [ngModelOptions]="{standalone: true}" #myckeditor="ngModel" name="myckeditor" required [config]="ckeConfig" debounce="500" (ngModelChange)="onChange($event)"></ckeditor>
+            </div>
+
+        </form>
+
+    </mat-dialog-content>
+    <mat-dialog-actions align="end">
+        <button mat-button mat-dialog-close>Thoát</button>
+        <button mat-button cdkFocusInitial (click)="addPersonnel()">Thêm</button>
+    </mat-dialog-actions>
+</section>
+
+<section *ngIf="edit">
+    <h2 mat-dialog-title>Sửa thông tin bài viết</h2>
+    <mat-dialog-content class="mat-typography">
+        <form class="example-form add-grid-form" [formGroup]="Form" *ngIf="value">
+
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Tiêu đề (*)</mat-label>
+                <input matInput formControlName="title">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Ngày hết hạn (*)</mat-label>
+                <input matInput [matDatepicker]="picker" formControlName="valid_date">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Số lượng (*)</mat-label>
+                <mat-select formControlName="quantity">
+                    <mat-option value="1">
+                        1
+                    </mat-option>
+                    <mat-option value="2">
+                        2
+                    </mat-option>
+                    <mat-option value="3">
+                        3
+                    </mat-option>
+                    <mat-option value="4">
+                        4
+                    </mat-option>
+                    <mat-option value="5">
+                        5
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Mức lương (*)</mat-label>
+                <mat-select formControlName="salary">
+                    <mat-option value="3-5 triệu">3-5 triệu</mat-option>
+                    <mat-option value="5-7 triệu">5-7 triệu</mat-option>
+                    <mat-option value="7-10 triệu">7-10 triệu</mat-option>
+                    <mat-option value="10-13 triệu">10-13 triệu</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Cấp độ công việc</mat-label>
+                <input matInput formControlName="job_level">
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Thành phố(*)</mat-label>
+                <mat-select formControlName="city_province_id">
+                    <mat-option *ngFor="let r of cityProvinces" [value]="r.id">
+                        {{r.name}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Loại nghành nghề</mat-label>
+                <mat-select formControlName="career_id">
+                    <mat-option *ngFor="let r of career" [value]="r.id">
+                        {{r.name}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Hình thức làm việc</mat-label>
+                <mat-select formControlName="form_of_work">
+                    <mat-option value="Cộng tác viên">
+                        Cộng tác viên
+                    </mat-option>
+                    <mat-option value="Thử việc">
+                        Thử việc
+                    </mat-option>
+                    <mat-option value="Nhân viên chính thức">
+                        Nhân viên chính thức
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Yêu cầu kinh nghiệm</mat-label>
+                <mat-select formControlName="experience_required">
+                    <mat-option value="1">
+                        1 năm
+                    </mat-option>
+                    <mat-option value="2">
+                        2 năm
+                    </mat-option>
+                    <mat-option value="3">
+                        3 năm
+                    </mat-option>
+                    <mat-option value="4">
+                        4 năm
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Trình độ học vấn</mat-label>
+                <mat-select formControlName="education">
+                    <mat-option value="Không">
+                        Không
+                    </mat-option>
+                    <mat-option value="Cao đẳng">
+                        Cao đẳng
+                    </mat-option>
+                    <mat-option value="Đại học">
+                        Đại học
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+
+
+
+            <mat-form-field class="example-full-width" style="grid-column: 1/5;" appearance="outline">
+                <mat-label>Yêu cầu công việc (*)</mat-label>
+                <textarea matInput placeholder="Ex. It makes me feel..." formControlName="work_required"></textarea>
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width" style="grid-column: 1/5;" appearance="outline">
+                <mat-label>Quyền lợi (*)</mat-label>
+                <textarea matInput placeholder="Ex. It makes me feel..." formControlName="entitlements"></textarea>
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width" style="grid-column: 1/5;" appearance="outline">
+                <mat-label>Liên hệ (*)</mat-label>
+                <textarea matInput placeholder="Ex. It makes me feel..." formControlName="contact"></textarea>
+            </mat-form-field>
+            <div class="form-group grid-description" style="grid-column: 1/5;">
+                <label for="exampleFormControlInput9">Mô tả (*)</label>
+                <br>
+                <ckeditor [(ngModel)]="Form.value.description" [ngModelOptions]="{standalone: true}" #myckeditor="ngModel" name="myckeditor" required [config]="ckeConfig" debounce="500" (ngModelChange)="onChange($event)"></ckeditor>
+            </div>
+
+        </form>
+
+    </mat-dialog-content>
+    <mat-dialog-actions align="end">
+        <button mat-button mat-dialog-close>Thoát</button>
+        <button mat-button (click)="editPersonnel()" cdkFocusInitial>Lưu</button>
+    </mat-dialog-actions>
+</section>
+
+<section *ngIf="delete">
+    <h2 mat-dialog-title>Xóa bài viết</h2>
+    <mat-dialog-content class="mat-typography">
+    </mat-dialog-content>
+    <mat-dialog-actions align="end">
+        <button mat-button mat-dialog-close>Thoát</button>
+        <button mat-button (click)="deletePersonnel()" mat-dialog-close> Xóa </button>
+    </mat-dialog-actions>
+</section>

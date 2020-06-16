@@ -1,0 +1,104 @@
+<section *ngIf="add">
+    <h2 mat-dialog-title>Thêm bài viêt</h2>
+    <mat-dialog-content class="mat-typography">
+        <form class="example-form banner-dialog" [formGroup]="Form">
+            <div>
+                <mat-form-field class="example-full-width" appearance="outline">
+                    <mat-label>Tiêu đề (*)</mat-label>
+                    <input matInput formControlName="title">
+                </mat-form-field>
+
+                <mat-form-field class="example-full-width" appearance="outline">
+                    <mat-label>Slogan (*)</mat-label>
+                    <textarea matInput formControlName="slogan"></textarea>
+                </mat-form-field>
+            </div>
+            <div class="form-group" style="grid-column: 2/3; grid-row: 1/3;">
+                <label for="careersName">Chọn ảnh (*)</label>
+                <div class="custom-file">
+                    <input type="file" (change)="handleFile($event)">
+                </div>
+                <i>File nhỏ hơn 2MB</i>
+                <hr>
+                <img *ngIf="url != null" [src]="url" height="225" alt="img">
+            </div>
+
+            <!-- <div class="articles-content">
+                <label>Nội dung</label>
+                <ckeditor [(ngModel)]="Form.value.content" [ngModelOptions]="{standalone: true}" #myckeditor="ngModel" name="myckeditor" required [config]="ckeConfig" debounce="500" (ngModelChange)="onChange($event)">
+                </ckeditor>
+            </div> -->
+            <!-- 
+            <mat-form-field class="example-full-width articles-content" appearance="outline">
+                <mat-label>Nội dung</mat-label>
+                <textarea matInput formControlName="description" class="articles-content-textarea"></textarea>
+            </mat-form-field> -->
+
+            <!-- 
+            <div class="articles-content">
+                <label for="careersName">Nội dung</label>
+                <ckeditor [editor]="editor" formControlName="content"></ckeditor>
+                <textarea formControlName="content"></textarea>
+            </div> -->
+        </form>
+    </mat-dialog-content>
+    <mat-dialog-actions align="end">
+        <button mat-button [mat-dialog-close]="true" (click)="addCity()" cdkFocusInitial> Thêm </button>
+        <button mat-button mat-dialog-close>Thoát</button>
+    </mat-dialog-actions>
+</section>
+
+<section *ngIf="edit">
+    <h2 mat-dialog-title>Sửa thông tin bài viết</h2>
+    <mat-dialog-content class="mat-typography">
+        <form class="example-form banner-dialog" [formGroup]="Form">
+
+            <div>
+                <mat-form-field class="example-full-width" appearance="outline">
+                    <mat-label>Tiêu đề (*)</mat-label>
+                    <input matInput formControlName="title">
+                </mat-form-field>
+                <mat-form-field class="example-full-width" appearance="outline">
+                    <mat-label>Slogan (*)</mat-label>
+                    <textarea matInput formControlName="slogan"></textarea>
+                </mat-form-field>
+
+            </div>
+
+            <div class="form-group" style="grid-column: 2/3; grid-row: 1/3;">
+                <label for="careersName">Chọn ảnh (*)</label>
+                <div class="custom-file">
+                    <input type="file" (change)="handleFile($event)">
+                </div>
+                <i>File nhỏ hơn 2MB</i>
+                <hr>
+                <img *ngIf="url != null" [src]="url" height="225" alt="img">
+                <img *ngIf="url == null" [src]="value.path" height="225" alt="img">
+            </div>
+
+            <!-- <div class="articles-content">
+                <label>Nội dung</label>
+                <ckeditor [(ngModel)]="Form.value.content" [ngModelOptions]="{standalone: true}" #myckeditor="ngModel" name="myckeditor" required [config]="ckeConfig" debounce="500" (ngModelChange)="onChange($event)">
+                </ckeditor>
+            </div> -->
+            <!-- <mat-form-field class="example-full-width articles-content" appearance="outline">
+                <mat-label>Nội dung</mat-label>
+                <textarea matInput formControlName="description" class="articles-content-textarea"></textarea>
+            </mat-form-field> -->
+        </form>
+    </mat-dialog-content>
+    <mat-dialog-actions align="end">
+        <button mat-button [mat-dialog-close]="true" (click)="editCity()" cdkFocusInitial> Lưu </button>
+        <button mat-button mat-dialog-close> Thoát </button>
+    </mat-dialog-actions>
+</section>
+
+<section *ngIf="delete">
+    <h2 mat-dialog-title>Xóa Bài viết</h2>
+    <mat-dialog-content class="mat-typography">
+    </mat-dialog-content>
+    <mat-dialog-actions align="end">
+        <button mat-button (click)="deleteCity()" mat-dialog-close> Xóa </button>
+        <button mat-button mat-dialog-close>Thoát</button>
+    </mat-dialog-actions>
+</section>

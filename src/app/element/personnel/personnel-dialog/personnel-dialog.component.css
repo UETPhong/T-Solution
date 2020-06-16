@@ -1,0 +1,8 @@
+.add-grid-form {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.grid-description {
+    grid-column: 1/4;
+}

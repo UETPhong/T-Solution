@@ -1,0 +1,405 @@
+<section *ngIf="add">
+    <h2 mat-dialog-title>Thêm nhân viên</h2>
+    <mat-dialog-content class="mat-typography">
+        <form class=" example-form add-grid-form" [formGroup]="Form">
+            <!-- <div class="form-group ">
+                <label for="exampleFormControlInput1">Tên đăng nhập</label>
+                <input type="text" class="form-control" placeholder="username" formControlName="username">
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlInput2">Mã nhân viên</label>
+                <input type="text" class="form-control" placeholder="code" formControlName="code">
+            </div>
+            <div class="form-group ">
+                <label for="exampleFormControlInput3">Email</label>
+                <input type="email" class="form-control" placeholder="name@example.com" formControlName="email">
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlInput12">Số điện thoại</label>
+                <input type="email" class="form-control" placeholder="0123456" formControlName="phone">
+            </div>
+            <div class="form-group ">
+                <label for="exampleFormControlInput4">Họ tên</label>
+                <input type="text" class="form-control" placeholder="full name" formControlName="full_name">
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlInput5">Ngày sinh</label>
+                <div style="display: grid; grid-template-columns: auto auto ">
+                    <input matInput [matDatepicker]="picker" formControlName="birth_date">
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlInput6">Giới tính</label>
+                <select class="custom-select" formControlName="gender">
+                    <option value="nam">nam</option>
+                    <option value="nữ">nữ</option>
+                    <option value="Không xác định">Không xác định</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlInput8">Quê quán</label>
+                <select class="custom-select" formControlName="address">
+                    <option *ngFor="let r of cityProvinces" [value]="r.name">{{r.name}}</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlInput7">Nơi ở hiện tại</label>
+                <select class="custom-select" formControlName="current_address">
+                    <option *ngFor="let r of cityProvinces" [value]="r.name">{{r.name}}</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlInput13">Phân quyền</label>
+                <select class="custom-select" formControlName="role_id">
+                    <option *ngFor="let r of roles" [value]="r.id">{{r.code}}</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlInput10">Phòng ban</label>
+                <select class="custom-select" formControlName="department_id">
+                    <option *ngFor="let r of departments" [value]="r.id">{{r.name}}</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlInput11">Chức danh</label>
+                <select class="custom-select" formControlName="job_title_id">
+                    <option *ngFor="let r of jobTitles" [value]="r.id">{{r.name}}</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlInput12">Chức vụ</label>
+                <select class="custom-select" formControlName="position_id">
+                    <option *ngFor="let r of jobPositions" [value]="r.id">{{r.name}}</option>
+                </select>
+            </div>
+            <div class="form-group grid-description">
+                <label for="exampleFormControlInput9">Mô tả</label>
+                <br>
+             <ckeditor [editor]="editor" [(ngModel)]="addValue.description" [ngModelOptions]="{standalone: true}"></ckeditor>
+                <textarea name="describe" cols="70" rows="4" formControlName="description"></textarea>
+            </div> -->
+
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Tên đăng nhập (*)</mat-label>
+                <input matInput placeholder="" formControlName="username">
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Mã nhân viên (*)</mat-label>
+                <input matInput placeholder="" formControlName="code">
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Email (*)</mat-label>
+                <input matInput placeholder="" formControlName="email">
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>SĐT (*)</mat-label>
+                <input matInput placeholder="" formControlName="phone">
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Họ và tên (*)</mat-label>
+                <input matInput placeholder="" formControlName="full_name">
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Giới tính (*)</mat-label>
+                <mat-select formControlName="gender">
+                    <mat-option value="Nam">
+                        Nam
+                    </mat-option>
+                    <mat-option value="Nữ">
+                        Nữ
+                    </mat-option>
+                    <mat-option value="Không xác định">
+                        Không xác định
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Ngày sinh (*)</mat-label>
+                <input matInput [matDatepicker]="picker" formControlName="birth_date">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Quê quán (*)</mat-label>
+                <mat-select formControlName="address">
+                    <mat-option *ngFor="let r of cityProvinces" [value]="r.name">
+                        {{r.name}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Nơi ở hiện tại (*)</mat-label>
+                <mat-select formControlName="current_address">
+                    <mat-option *ngFor="let r of cityProvinces" [value]="r.name">
+                        {{r.name}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Phân quyền (*)</mat-label>
+                <mat-select formControlName="role_id">
+                    <mat-option *ngFor="let option of roles" [value]="option.id">
+                        {{option.code}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Phòng ban (*)</mat-label>
+                <mat-select formControlName="department_id">
+                    <mat-option *ngFor="let option of departments" [value]="option.id">
+                        {{option.name}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Chức danh (*)</mat-label>
+                <mat-select formControlName="job_title_id">
+                    <mat-option *ngFor="let option of jobTitles" [value]="option.id">
+                        {{option.name}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Chức vụ (*)</mat-label>
+                <mat-select formControlName="position_id">
+                    <mat-option *ngFor="let option of jobPositions" [value]="option.id">
+                        {{option.name}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width" style="grid-column: 2/5;" appearance="outline">
+                <mat-label>Chú thích</mat-label>
+                <textarea matInput placeholder="Ex. It makes me feel..." formControlName="description"></textarea>
+            </mat-form-field>
+
+        </form>
+
+    </mat-dialog-content>
+    <mat-dialog-actions align="end">
+        <button mat-button mat-dialog-close>Thoát</button>
+        <button mat-button cdkFocusInitial (click)="addPersonnel()">Thêm</button>
+    </mat-dialog-actions>
+</section>
+
+<section *ngIf="edit">
+    <h2 mat-dialog-title>Sửa thông tin nhân viên</h2>
+    <mat-dialog-content class="mat-typography">
+        <form class="example-form add-grid-form" [formGroup]="Form" *ngIf="value">
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Tên đăng nhập (*)</mat-label>
+                <input matInput placeholder="" formControlName="username">
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Mã nhân viên (*)</mat-label>
+                <input matInput placeholder="" formControlName="code">
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Email (*)</mat-label>
+                <input matInput placeholder="" formControlName="email">
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>SĐT (*)</mat-label>
+                <input matInput placeholder="" formControlName="phone">
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Họ và tên (*)</mat-label>
+                <input matInput placeholder="" formControlName="full_name">
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Giới tính (*)</mat-label>
+                <mat-select formControlName="gender">
+                    <mat-option value="Nam">
+                        Nam
+                    </mat-option>
+                    <mat-option value="Nữ">
+                        Nữ
+                    </mat-option>
+                    <mat-option value="Không xác định">
+                        Không xác định
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Ngày sinh (*)</mat-label>
+                <input matInput [matDatepicker]="picker" formControlName="birth_date">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Quê quán (*)</mat-label>
+                <mat-select formControlName="address">
+                    <mat-option *ngFor="let r of cityProvinces" [value]="r.name">
+                        {{r.name}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Nơi ở hiện tại (*)</mat-label>
+                <mat-select formControlName="address" formControlName="current_address">
+                    <mat-option *ngFor="let r of cityProvinces" [value]="r.name">
+                        {{r.name}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Phân quyền (*)</mat-label>
+                <mat-select formControlName="role_id">
+                    <mat-option *ngFor="let option of roles" [value]="option.id">
+                        {{option.code}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Phòng ban (*)</mat-label>
+                <mat-select formControlName="department_id">
+                    <mat-option *ngFor="let option of departments" [value]="option.id">
+                        {{option.name}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Chức danh (*)</mat-label>
+                <mat-select formControlName="job_title_id">
+                    <mat-option *ngFor="let option of jobTitles" [value]="option.id">
+                        {{option.name}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Chức vụ (*)</mat-label>
+                <mat-select formControlName="position_id">
+                    <mat-option *ngFor="let option of jobPositions" [value]="option.id">
+                        {{option.name}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width" style="grid-column: 2/5;" appearance="outline">
+                <mat-label>Chú thích</mat-label>
+                <textarea matInput placeholder="Ex. It makes me feel..." formControlName="description"></textarea>
+            </mat-form-field>
+
+            <!-- <div class="form-group ">
+                <label for="exampleFormControlInput1">Tên đăng nhập</label>
+                <input type="text" class="form-control" placeholder="username" formControlName="username" disabled>
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlInput2">Mã nhân viên</label>
+                <input type="text" class="form-control" placeholder="code" formControlName="code" disabled>
+            </div>
+            <div class="form-group ">
+                <label for="exampleFormControlInput3">Email</label>
+                <input type="email" class="form-control" placeholder="name@example.com" formControlName="email">
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlInput12">Số điện thoại</label>
+                <input type="email" class="form-control" placeholder="0123456" formControlName="phone">
+            </div>
+            <div class="form-group ">
+                <label for="exampleFormControlInput4">Họ tên</label>
+                <input type="text" class="form-control" placeholder="full name" formControlName="full_name">
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlInput5">Ngày sinh</label>
+                <div style="display: grid; grid-template-columns: auto auto ">
+                    <input matInput [matDatepicker]="picker" formControlName="birth_date">
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlInput6">Giới tính</label>
+                <select class="custom-select" formControlName="gender">
+                    <option value="nam">nam</option>
+                    <option value="nữ">nữ</option>
+                    <option value="Không xác định">Không xác định</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlInput8">Quê quán</label>
+                <select class="custom-select" formControlName="address">
+                    <option *ngFor="let r of cityProvinces" [value]="r.name">{{r.name}}</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlInput7">Nơi ở hiện tại</label>
+                <select class="custom-select" formControlName="current_address">
+                    <option *ngFor="let r of cityProvinces" [value]="r.name">{{r.name}}</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlInput13">Phân quyền</label>
+                <select class="custom-select" formControlName="role_id">
+                    <option *ngFor="let r of roles" [value]="r.id">{{r.code}}</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlInput10">Phòng ban</label>
+                <select class="custom-select" formControlName="department_id">
+                    <option *ngFor="let r of departments" [value]="r.id">{{r.name}}</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlInput11">Chức danh</label>
+                <select class="custom-select" formControlName="job_title_id">
+                    <option *ngFor="let r of jobTitles" [value]="r.id">{{r.name}}</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlInput12">Chức vụ</label>
+                <select class="custom-select" formControlName="position_id">
+                    <option *ngFor="let r of jobPositions" [value]="r.id">{{r.name}}</option>
+                </select>
+            </div>
+            <div class="form-group grid-description">
+                <label for="exampleFormControlInput9">Mô tả</label>
+                <br> -->
+            <!-- <ckeditor [editor]="editor" [(ngModel)]="addValue.description" [ngModelOptions]="{standalone: true}"></ckeditor> -->
+            <!-- <textarea name="describe" cols="70" rows="4" formControlName="description"></textarea>
+                </div> -->
+
+        </form>
+
+    </mat-dialog-content>
+    <mat-dialog-actions align="end">
+        <button mat-button mat-dialog-close>Thoát</button>
+        <button mat-button (click)="editPersonnel()" cdkFocusInitial>Lưu</button>
+    </mat-dialog-actions>
+</section>
+
+<section *ngIf="delete">
+    <h2 mat-dialog-title>Xóa nhân viên</h2>
+    <mat-dialog-content class="mat-typography">
+    </mat-dialog-content>
+    <mat-dialog-actions align="end">
+        <button mat-button mat-dialog-close>Thoát</button>
+        <button mat-button (click)="deletePersonnel()" mat-dialog-close> Xóa </button>
+    </mat-dialog-actions>
+</section>
