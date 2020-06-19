@@ -1,0 +1,42 @@
+.contact-banner {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+}
+
+.contact-banner-content {
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* justify-content: center; */
+    display: grid;
+    grid-template-columns: 9fr 5fr;
+    grid-column-gap: 2rem;
+    width: 70vw;
+}
+
+.contact-banner-content form {
+    color: blanchedalmond;
+    padding: 2rem;
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: .5rem;
+}
+
+.contact-banner-title {
+    padding: 2rem;
+}
+
+.contact-banner h2 {
+    font-size: 3rem;
+    color: white;
+    padding: 1rem 0;
+    width: max-content;
+}
+
+.contact-banner p {
+    font-size: 1rem;
+    color: white;
+    padding: .25rem 0 0 .5rem;
+    /* width: max-content; */
+}

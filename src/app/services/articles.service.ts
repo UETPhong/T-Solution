@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpEvent, HttpErrorResponse, HttpEventType } from '@angular/common/http';
+import { HttpClient, HttpEvent, HttpErrorResponse, HttpEventType, HttpHeaders } from '@angular/common/http';
 import { map, catchError } from 'rxjs/operators';
 import { Observable, throwError } from 'rxjs';
 import { environment } from '../../environments/environment';
@@ -20,10 +20,15 @@ export class ArticlesService {
   // GET /api/articles/{id}
   // GET /api/articles
 
+  httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json'
+    })
+  };
 
-
-  getArticles() {
-    return this.http.get(`${this.apiUrl}/api/articles`)
+  getArticles(params?) {
+    const headers = this.httpOptions.headers;
+    return this.http.get(`${this.apiUrl}/api/articles`, { headers, params })
   }
   getArticleById(id) {
     return this.http.get(`${this.apiUrl}/api/articles/${id}`)

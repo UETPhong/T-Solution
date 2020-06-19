@@ -1,0 +1,29 @@
+section {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-column-gap: 1rem;
+    margin: 7rem 3rem 0 3rem;
+}
+
+section h1 {
+    grid-column: 1/4;
+    font-size: 4rem;
+    color: rgb(173, 154, 154);
+    margin-bottom: 5rem;
+}
+
+section h1 a img {
+    /* width: 100%; */
+}
+
+.information-content-content {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 3;
+    display: -webkit-box;
+    -webkit-box-orient: vertical
+}
+
+.information-content {
+    color: black;
+}

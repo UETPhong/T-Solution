@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpEvent, HttpErrorResponse, HttpEventType } from '@angular/common/http';
+import { HttpClient, HttpEvent, HttpErrorResponse, HttpEventType, HttpHeaders } from '@angular/common/http';
 import { map, catchError } from 'rxjs/operators';
 import { Observable, throwError } from 'rxjs';
 import { environment } from '../../environments/environment';
@@ -20,10 +20,15 @@ export class RecruitmentsService {
   // GET /api/recruitments
   // GET /api/recruitments/{id}
 
+  httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json',
+    })
+  };
 
-
-  getAll() {
-    return this.http.get(`${this.apiUrl}/api/recruitments`)
+  getAll(params?) {
+    const headers = this.httpOptions.headers;
+    return this.http.get(`${this.apiUrl}/api/recruitments`, { headers, params })
   }
   getById(id) {
     return this.http.get(`${this.apiUrl}/api/recruitments/${id}`)

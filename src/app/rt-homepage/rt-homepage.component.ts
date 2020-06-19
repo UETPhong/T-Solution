@@ -9,8 +9,7 @@ import { environment } from '../../environments/environment';
 export class RtHomepageComponent implements OnInit {
 
   constructor() {
-    window.location.href = environment.home;
-
+    window.location.href = 'http://14.231.201.172:8002/#/home';
    }
 
   ngOnInit(): void {

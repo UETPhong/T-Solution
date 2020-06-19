@@ -46,6 +46,12 @@ import { JwtInterceptor } from './helpers/jwt.interceptor';
 import { ErrorInterceptor } from './helpers/error.interceptor';
 import { MatNativeDateModule } from '@angular/material/core';
 import { RtHomepageComponent } from './rt-homepage/rt-homepage.component';
+import { LayoutComponent } from './home-page/layout/layout.component';
+import { HomeNavbarComponent } from './home-page/layout/home-navbar/home-navbar.component';
+import { HomeFooterComponent } from './home-page/layout/home-footer/home-footer.component';
+
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+
 
 
 
@@ -65,11 +71,10 @@ import { RtHomepageComponent } from './rt-homepage/rt-homepage.component';
     ChartsModule,
     FormsModule,
     HttpClientModule,
-    // FormsModule,
     HttpClientModule,
-    // DemoMaterialModule,
     MatNativeDateModule,
     ReactiveFormsModule,
+    FontAwesomeModule,
   ],
   declarations: [
     AppComponent,
@@ -79,6 +84,9 @@ import { RtHomepageComponent } from './rt-homepage/rt-homepage.component';
     LoginComponent,
     RegisterComponent,
     RtHomepageComponent,
+    LayoutComponent,
+    HomeNavbarComponent,
+    HomeFooterComponent,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },

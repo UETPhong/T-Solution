@@ -1,0 +1,89 @@
+<!-- banner -->
+<section>
+    <div id="demo" class="carousel slide" data-ride="carousel">
+        <!-- Indicators -->
+        <!-- <ul class="carousel-indicators">
+            <li data-target="#demo" data-slide-to="0" class="active"></li>
+            <li data-target="#demo" data-slide-to="1"></li>
+            <li data-target="#demo" data-slide-to="2"></li>
+        </ul> -->
+
+        <!-- The slideshow -->
+        <div class="carousel-inner">
+            <div class="carousel-item active recruitment-banner ">
+                <img src="../../../assets/home/img/daniel-olahh.jpg" alt="Chicago" width="100%" height="100%">
+                <div class="recruitment-banner-content">
+                    <div class="recruitment-banner-title" style="color:blanchedalmond">
+                        <h2>TÌM KIẾM CÔNG VIỆC</h2>
+                        <form [formGroup]="formSearch">
+                            <div class="form-group">
+                                <label>Từ khóa</label>
+                                <input type="text" class="form-control" placeholder="" formControlName="keywords">
+                            </div>
+                            <div class="form-group">
+                                <label>Ngành nghề</label>
+                                <select class="form-control" formControlName="career_id">
+                                    <option value="">Tất cả ...</option>
+                                    <option *ngFor="let r of careers" [value]="r.id">{{r.name}}</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Địa điểm</label>
+                                <select class="form-control" formControlName="city_province_id">
+                                    <option value="">Tất cả ...</option>
+                                    <option *ngFor="let r of citys"  [value]="r.id">{{r.name}}</option>
+                                </select>
+                            </div>
+                        </form>
+                        <div class="d-flex align-items-center">
+                            <button class="btn btn-primary btn-lg" (click)="getAllRecruitments()"> Tìm kiếm </button>
+                        </div>
+                        <hr style="border: 1px solid while">
+                        <ul>
+                            <li *ngFor="let r of recruitments"><a href="javascript:void(0)"><i class="fa fa-thumb-tack" aria-hidden="true"></i> &nbsp; {{r.title}} </a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Left and right controls -->
+        <!-- <a class="carousel-control-prev" href="#demo" data-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </a>
+        <a class="carousel-control-next" href="#demo" data-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </a> -->
+    </div>
+
+
+
+</section>
+
+<section style="height: 32rem;margin-top: 1rem;">
+    <div class="d-flex justify-content-center list-recruitment" *ngFor="let r of recruitments">
+        <div class="recruitment-content">
+            <h3>{{r.title}}</h3>
+            <ul>
+                <li><i class="fa fa-briefcase" aria-hidden="true"></i> &nbsp; T-SOLUTION </li>
+                <li><i class="fa fa-id-card-o" aria-hidden="true"></i> &nbsp;{{r.job_level}} </li>
+                <li><i class="fa fa-money" aria-hidden="true"></i> &nbsp; Mức lương: {{r.salary}} </li>
+                <li><i class="fa fa-map-marker" aria-hidden="true"></i> &nbsp; {{r.city_province_id}}</li>
+                <li><i class="fa fa-calendar" aria-hidden="true"></i> &nbsp; Hạn nộp: {{r.valid_date | date:'MM/dd/yyyy'}} </li>
+                <li><i class="fa fa-users" aria-hidden="true"></i> &nbsp; Số lượng: {{r.quantity}} </li>
+            </ul>
+            <div>
+                <button type="button" class="btn btn-primary btn-lg">Ứng tuyển</button>
+            </div>
+        </div>
+    </div>
+
+</section>
+<div class="recruitment-pagination d-flex justify-content-center">
+    <ul>
+        <li><button type="button" class="btn btn-dark" (click)="firstPage()"> << </button></li>
+        <li><button type="button" class="btn btn-dark" (click)="previousPage()"> < </button></li>
+        <li><button type="button" class="btn btn-dark" disabled> {{currentPage}} </button></li>
+        <li><button type="button" class="btn btn-dark" (click)="nextPage()"> > </button></li>
+        <li><button type="button" class="btn btn-dark" (click)="lastPage()"> >> </button></li>
+    </ul>
+</div>

@@ -5,10 +5,10 @@
 
 export const environment = {
   production: false,
-  localLink : 'http://localhost:1818/',
   apiUrl:'http://localhost:1818',
+  localLink : 'http://localhost:1818/',
   home:'http://localhost:4201',
-  // apiUrl:'localhost:8001',
-  // apiUrl:'http://14.231.209.186:44351',
-  // localLink : 'http://14.231.209.186:44351',
+  // apiUrl:'http://14.231.201.172:44351',
+  // localLink : 'http:/14.231.201.172:44351',
+  // home:'http:/14.231.201.172:8002/',
 };
