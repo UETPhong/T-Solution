@@ -6,10 +6,11 @@ import { HomePageComponent } from './home-page.component';
 import { BannerComponent } from './banner/banner.component';
 import { InformationComponent } from './information/information.component';
 import { ServiceComponent } from './service/service.component';
+import { InformationDetailComponent } from './information-detail/information-detail.component';
 
 
 @NgModule({
-  declarations: [HomePageComponent, BannerComponent, InformationComponent, ServiceComponent],
+  declarations: [HomePageComponent, BannerComponent, InformationComponent, ServiceComponent, InformationDetailComponent],
   imports: [
     CommonModule,
     HomePageRoutingModule

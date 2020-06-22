@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { CityProvincesService, CareersService, RecruitmentsService } from '../../services'
 import { FormGroup, FormControl } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
+import { RecruitmentApplyDialogComponent } from './recruitment-apply-dialog/recruitment-apply-dialog.component';
 
 @Component({
   selector: 'app-recruitment',
@@ -18,13 +20,11 @@ export class RecruitmentComponent implements OnInit {
 
   formSearch: FormGroup
 
-
-
-
   constructor(
     private CityProvincesService: CityProvincesService,
     private CareersService: CareersService,
     private RecruitmentsService: RecruitmentsService,
+    public dialog: MatDialog
   ) { }
 
   ngOnInit(): void {
@@ -63,30 +63,43 @@ export class RecruitmentComponent implements OnInit {
     if (this.formSearch.value.keywords !== '') { query['keywords'] = this.formSearch.value.keywords }
     if (this.formSearch.value.career_id !== '') { query['career_id'] = this.formSearch.value.career_id }
     if (this.formSearch.value.city_province_id !== '') { query['city_province_id'] = this.formSearch.value.city_province_id }
-    
+
     this.RecruitmentsService.getAll(query).subscribe(r => {
       this.data = r['data']
       this.recruitments = r['data']['apiResult']
+      console.log('list',this.recruitments);
+      
     })
   }
 
-  firstPage(){
+  // open dialog function
+  openDialog(value) {
+    const dialogRef = this.dialog.open(RecruitmentApplyDialogComponent, {panelClass: 'custom-dialog-container' ,
+      maxWidth: '100',
+      data: { value }
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      // this.getAllRecruitments();
+    });
+  }
+
+  firstPage() {
     this.currentPage = 1;
     this.getAllRecruitments()
   }
-  previousPage(){
-    if(this.currentPage === 1){
+  previousPage() {
+    if (this.currentPage === 1) {
       return
     }
     this.currentPage = this.currentPage - 1;
     this.getAllRecruitments()
   }
-  nextPage(){
-    if(this.currentPage >= this.data.lastPage){return}
+  nextPage() {
+    if (this.currentPage >= this.data.lastPage) { return }
     this.currentPage = this.currentPage + 1;
     this.getAllRecruitments()
   }
-  lastPage(){
+  lastPage() {
     this.currentPage = this.data.lastPage;
     this.getAllRecruitments()
   }

@@ -1,0 +1,15 @@
+.navbar-brand {
+    display: inline-flex
+}
+
+.navbar-brand img {
+    margin-left: 6rem;
+}
+
+.navbar-brand h2 {
+    font-size: 2rem;
+    top: 5rem;
+    margin: .6rem;
+    font-weight: bold;
+    color: rgb(138, 174, 241);
+}

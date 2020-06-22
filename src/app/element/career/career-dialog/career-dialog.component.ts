@@ -2,7 +2,7 @@ import { Component, OnInit, Optional, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { CityProvincesService, CareersService } from '../../../services';
+import {  CareersService } from '../../../services';
 
 
 @Component({

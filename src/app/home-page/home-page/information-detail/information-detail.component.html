@@ -1,0 +1,25 @@
+<section>
+    <div class="main-content" *ngIf="articlesSelected">
+        <div class="content-left">
+            <div class="header-content">
+                <h3>{{articlesSelected.title}}</h3>
+            </div>
+            <div [innerHTML]="articlesSelected.description"></div>
+        </div>
+
+
+        <div class="content-right">
+            <div class="header-content">
+                <h3>Tin nổi bật</h3>
+            </div>
+            <ul>
+                <li *ngFor="let a of articles">
+                    <a routerLink="/homepage/informationDetail/{{a.id}}" (click)="getArticlesById(a.id)" tyle="color: black;">
+                        <img src="{{a.path}}" style="width: 100%;" alt="img">
+                        <div class="description" [innerHTML]="a.description"></div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</section>

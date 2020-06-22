@@ -54,15 +54,14 @@
             <span class="carousel-control-next-icon"></span>
         </a> -->
     </div>
-
-
-
 </section>
 
 <section style="height: 32rem;margin-top: 1rem;">
     <div class="d-flex justify-content-center list-recruitment" *ngFor="let r of recruitments">
         <div class="recruitment-content">
-            <h3>{{r.title}}</h3>
+            <a href="javascript:void(0)" [routerLink]="['detail',r.id]">
+                <h3>{{r.title}}</h3>
+            </a>
             <ul>
                 <li><i class="fa fa-briefcase" aria-hidden="true"></i> &nbsp; T-SOLUTION </li>
                 <li><i class="fa fa-id-card-o" aria-hidden="true"></i> &nbsp;{{r.job_level}} </li>
@@ -72,9 +71,12 @@
                 <li><i class="fa fa-users" aria-hidden="true"></i> &nbsp; Số lượng: {{r.quantity}} </li>
             </ul>
             <div>
-                <button type="button" class="btn btn-primary btn-lg">Ứng tuyển</button>
+                <button type="button" class="btn btn-primary btn-lg" (click)="openDialog(r)">Ứng tuyển</button>
             </div>
         </div>
+    </div>
+    <div *ngIf="recruitments.length == 0">
+        <p style="font-size: 2rem; text-align: center;"><i><b>Không có bản ghi nào</b></i></p>
     </div>
 
 </section>
@@ -82,7 +84,7 @@
     <ul>
         <li><button type="button" class="btn btn-dark" (click)="firstPage()"> << </button></li>
         <li><button type="button" class="btn btn-dark" (click)="previousPage()"> < </button></li>
-        <li><button type="button" class="btn btn-dark" disabled> {{currentPage}} </button></li>
+        <li><button type="button" class="btn btn-dark" disabled> {{currentPage}}/{{data.lastPage}} </button></li>
         <li><button type="button" class="btn btn-dark" (click)="nextPage()"> > </button></li>
         <li><button type="button" class="btn btn-dark" (click)="lastPage()"> >> </button></li>
     </ul>

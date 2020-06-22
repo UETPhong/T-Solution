@@ -1,0 +1,85 @@
+<!-- banner -->
+<section>
+    <div id="demo" class="carousel slide" data-ride="carousel">
+        <!-- Indicators -->
+        <!-- <ul class="carousel-indicators">
+            <li data-target="#demo" data-slide-to="0" class="active"></li>
+            <li data-target="#demo" data-slide-to="1"></li>
+            <li data-target="#demo" data-slide-to="2"></li>
+        </ul> -->
+        <!-- The slideshow -->
+        <div class="carousel-inner" *ngFor="let r of banners">
+            <div class="carousel-item active home-banner ">
+                <img src="../../../assets/home/img/login-image.jpg" alt="Los Angeles" width="100%" height="100%">
+                <!-- <img src={{r.path}} alt="Los Angeles" width="100%" height="100%"> -->
+                <!-- <div class="home-banner-title">
+                    <h1>{{r.title}}</h1>
+                </div> -->
+            </div>
+        </div>
+        <!-- Left and right controls -->
+        <!-- <a class="carousel-control-prev" href="#demo" data-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </a>
+        <a class="carousel-control-next" href="#demo" data-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </a> -->
+    </div>
+</section>
+<!-- content -->
+<section class="detail-content" *ngIf="recruitmentSelect">
+    <div class="detail-content-header">
+        <div class="detail-content-header-img">
+            <img src="../../../../assets/home/img/placeholder.jpg" alt="T-Solution" width="80%">
+        </div>
+        <div class="detail-content-header-body">
+            <h2><b>{{recruitmentSelect.title}}</b></h2>
+            <p style="font-size: 1.5rem; ">T-Solution</p>
+            <p>Hà Nội</p>
+            <div class="detail-content-header-body-bottom">
+                <p>Mức lương: <b> {{recruitmentSelect.salary}} </b></p>
+                <p>Hạn Nộp: <b> {{recruitmentSelect.valid_date | date:'dd/MM/yyyy'}} </b> </p>
+            </div>
+        </div>
+        <div class="detail-content-header-button d-flex align-items-center">
+            <button type="button" class="btn btn-primary btn-lg" (click)="openDialog(recruitmentSelect)">Ứng tuyển</button>
+        </div>
+    </div>
+    <h2>Chi tiết công việc</h2>
+    <div class=" detail-content-body ">
+        <div class="detail-content-body-left ">
+            <h3>QUYỀN LỢI</h3>
+            <div [innerHTML]="recruitmentSelect.entitlements "></div>
+            <hr>
+            <h3>MÔ TẢ CÔNG VIỆC</h3>
+            <div [innerHTML]="recruitmentSelect.description "></div>
+            <hr>
+            <h3>YÊU CẦU CÔNG VIỆC</h3>
+            <div [innerHTML]="recruitmentSelect.work_required "></div>
+        </div>
+        <div class="detail-content-body-right ">
+            <ul>
+                <li>
+                    <h4> NGÀY ĐĂNG TUYỂN </h4>
+                    <p> {{recruitmentSelect.valid_date | date:'dd/MM/yyyy'}} </p>
+                </li>
+                <li>
+                    <h4>TRÌNH ĐỘ </h4>
+                    <p>{{recruitmentSelect.education}} </p>
+                </li>
+                <li>
+                    <h4>NGÀNH NGHỀ </h4>
+                    <p>{{recruitmentSelect.career_id}} </p>
+                </li>
+                <li>
+                    <h4>HÌNH THỨC LÀM VIỆC </h4>
+                    <p>{{recruitmentSelect.form_of_work}} </p>
+                </li>
+                <li style="border-bottom:none ">
+                    <h4>LIÊN HỆ </h4>
+                    <p>{{recruitmentSelect.contact}}</p>
+                </li>
+            </ul>
+        </div>
+    </div>
+</section>
