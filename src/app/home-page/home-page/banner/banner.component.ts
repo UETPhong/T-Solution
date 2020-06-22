@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { BannersService } from '../../../services';
 
 @Component({
   selector: 'banner',
@@ -7,9 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BannerComponent implements OnInit {
 
-  constructor() { }
+  banners
+
+  constructor(
+    private BannersService: BannersService,
+  ) { }
 
   ngOnInit(): void {
+    this.getAllBanners()
   }
 
+  getAllBanners() {
+    this.BannersService.getBanners().subscribe(r => {
+      this.banners = r['data']
+      console.log('check1',this.banners);
+    })
+  }
 }

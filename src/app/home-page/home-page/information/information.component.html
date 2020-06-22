@@ -1,20 +1,10 @@
 <section>
     <h1 class="text-center">THÔNG TIN VỀ CÔNG TY</h1>
-    <a class="information-content" href="javascript:void(0)">
-        <h2>Hỗ trợ</h2>
-        <img src="../../../../assets/home/img/posts/1.jpg" alt="" width="100%">
-        <p class="information-content-content">Công ty Cổ phần Công nghệ T- Solution là công ty hoạt động trong lĩnh vực IT có văn phòng làm việc tại Hà Nội. Công ty có môi trường làm việc chuyên nghiệp, mang tính quốc tế cao, luôn tạo điều kiện cho các cá nhân có cơ hội phát triển nghề nghiệp.</p>
-    </a>
-    <a class="information-content" href="javascript:void(0)">
-        <h2>Tuyển dụng</h2>
-        <img src="../../../../assets/home/img/posts/1.jpg" alt="" width="100%">
-        <p class="information-content-content">Công ty Cổ phần Công nghệ T- Solution là công ty hoạt động trong lĩnh vực IT có văn phòng làm việc tại Hà Nội. Công ty có môi trường làm việc chuyên nghiệp, mang tính quốc tế cao, luôn tạo điều kiện cho các cá nhân có cơ hội phát triển nghề nghiệp.</p>
-
-    </a>
-    <a class="information-content" href="javascript:void(0)">
-        <h2>Liên hệ</h2>
-        <img src="../../../../assets/home/img/posts/1.jpg" alt="" width="100%">
-        <p class="information-content-content">Công ty Cổ phần Công nghệ T- Solution là công ty hoạt động trong lĩnh vực IT có văn phòng làm việc tại Hà Nội. Công ty có môi trường làm việc chuyên nghiệp, mang tính quốc tế cao, luôn tạo điều kiện cho các cá nhân có cơ hội phát triển nghề nghiệp.</p>
-
+    <a class="information-content" href="javascript:void(0)" *ngFor="let r of articles">
+        <h2>{{r.title}}</h2>
+        <div class="img-ratio" style="width: 100%;  height: calc(100vw * 1 / 6);">
+            <img src={{r.path}} alt="" width="100%" height="100%">
+        </div>
+        <p class="information-content-content">{{r.description}}</p>
     </a>
 </section>

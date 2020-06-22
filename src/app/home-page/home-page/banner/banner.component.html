@@ -11,8 +11,14 @@
         </ul>
 
         <!-- The slideshow -->
-        <div class="carousel-inner">
+        <div class="carousel-inner" *ngFor="let r of banners">
             <div class="carousel-item active home-banner ">
+                <img src={{r.path}} alt="Los Angeles" width="100%" height="100%">
+                <div class="home-banner-title">
+                    <h1>{{r.title}}</h1>
+                </div>
+            </div>
+            <div class="carousel-item home-banner ">
                 <img src="../../../assets/home/img/login-image.jpg" alt="Los Angeles" width="100%" height="100%">
                 <div class="home-banner-title">
                     <h1>WELCOME TO T-SOLITION</h1>

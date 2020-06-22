@@ -13,7 +13,7 @@ import { RtHomepageComponent } from './rt-homepage/rt-homepage.component';
 import { LayoutComponent } from './home-page/layout/layout.component';
 
 export const routes: Routes = [
-  // { path: '', redirectTo: 'dashboard', pathMatch: 'full', },
+  { path: 'admin', redirectTo: 'dashboard', pathMatch: 'full', },
   { path: '', redirectTo: 'homepage', pathMatch: 'full', },
   { path: '404', component: P404Component, data: { title: 'Page 404' } },
   { path: '500', component: P500Component, data: { title: 'Page 500' } },
