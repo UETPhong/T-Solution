@@ -11,7 +11,7 @@
         <!-- The slideshow -->
         <div class="carousel-inner">
             <div class="carousel-item active recruitment-banner ">
-                <img src="../../../assets/home/img/daniel-olahh.jpg" alt="Chicago" width="100%" height="100%">
+                <img src="../../../assets/img/about-us-our-company-img.jpg" alt="Chicago" width="100%" height="100%">
                 <div class="recruitment-banner-content">
                     <div class="recruitment-banner-title" style="color:blanchedalmond">
                         <h2>TÌM KIẾM CÔNG VIỆC</h2>
@@ -40,7 +40,11 @@
                         </div>
                         <hr style="border: 1px solid while">
                         <ul>
-                            <li *ngFor="let r of recruitments"><a href="javascript:void(0)"><i class="fa fa-thumb-tack" aria-hidden="true"></i> &nbsp; {{r.title}} </a></li>
+                            <li *ngFor="let r of recruitments">
+                                <a href="javascript:void(0)" [routerLink]="['/recruitment/detail',r.id]">
+                                    <i class="fa fa-thumb-tack" aria-hidden="true"></i> &nbsp; {{r.title}}
+                                </a>
+                            </li>
                         </ul>
                     </div>
                 </div>

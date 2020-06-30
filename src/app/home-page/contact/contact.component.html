@@ -30,65 +30,29 @@
                         <p><i class="fa fa-envelope-o" aria-hidden="true"></i> &nbsp; Email: tsolutionvietnam@gmail.com</p>
                         <!-- </div> -->
                     </div>
-                    <form>
-                        <h2>Contact with us</h2>
+                    <form [formGroup]="formContact">
+                        <h2>Liên hệ chúng tôi</h2>
                         <div class="form-group">
-                            <label for="exampleInputEmail1">Your Name</label>
-                            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                            <label for="exampleInputEmail1">Họ và tên</label>
+                            <input type="text" class="form-control" formControlName="full_name">
                             <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
                         </div>
                         <div class="form-group">
-                            <label for="exampleInputPassword1">Your Email</label>
-                            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                            <label for="exampleInputPassword1">Email</label>
+                            <input type="email" class="form-control" formControlName="email">
                         </div>
                         <div class="form-group">
-                            <label for="exampleInputPassword1">Your Subject</label>
-                            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                            <label for="exampleInputPassword1">Tiêu đề</label>
+                            <input type="text" class="form-control" formControlName="subject">
                         </div>
                         <div class="form-group">
-                            <label for="exampleInputPassword1">Your Message</label>
-                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                            <label for="exampleInputPassword1">Nội dung</label>
+                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" formControlName="content"></textarea>
                         </div>
-                        <!-- <div class="form-check">
-                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                            <label class="form-check-label" for="exampleCheck1">Check me out</label>
-                        </div> -->
-                        <button type="submit" class="btn btn-primary">Gửi</button>
+                        <button type="submit" class="btn btn-primary" (click)="sentMail()">Gửi</button>
                     </form>
                 </div>
             </div>
-            <!-- 
-            <div class="carousel-item contact-banner ">
-                <img src="../../../assets/home/img/daniel-olahh.jpg" alt="Chicago" width="100%" height="100%">
-                <div class="contact-banner-content">
-                    <div class="contact-banner-title" style="color:blanchedalmond">
-                        <h2>CHI NHÁNH</h2>
-                        <p><i class="fa fa-map-o" aria-hidden="true"></i> &nbsp; Địa chỉ:</p>
-                        <p><i class="fa fa-phone" aria-hidden="true"></i> &nbsp; Số điện thoại:</p>
-                        <p><i class="fa fa-envelope-o" aria-hidden="true"></i> &nbsp; Email: </p>
-                    </div>
-                    <form>
-                        <h2>Contact with us</h2>
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">Your Name</label>
-                            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputPassword1">Your Email</label>
-                            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputPassword1">Your Subject</label>
-                            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputPassword1">Your Message</label>
-                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Submit</button>
-                    </form>
-                </div>
-            </div> -->
 
         </div>
 

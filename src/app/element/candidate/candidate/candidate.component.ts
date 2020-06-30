@@ -22,7 +22,7 @@ export class CandidateComponent implements OnInit {
   displayedColumns: string[] = [
     'id',
     'full_name',
-    'address',//Vị trí ứng tuyển
+    'vacancies',//Vị trí ứng tuyển
     'email',
     'number',
     'create_date',
@@ -49,6 +49,8 @@ export class CandidateComponent implements OnInit {
   getAllCandidate() {
     this.CandidatesService.getAll().subscribe(r => {
       this.listData = r['data']['apiResult'];
+      console.log('data',this.listData);
+      
       this.listData.sort(this.compare)
       this.dataSource = new MatTableDataSource(this.listData);
       this.dataSource.paginator = this.paginator;

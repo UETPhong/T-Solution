@@ -62,7 +62,7 @@ export class CandidateDialogComponent implements OnInit {
         full_name: new FormControl(null, [Validators.required]),
         email: new FormControl(null, [Validators.required]),
         number: new FormControl(null, [Validators.required]),
-        address: new FormControl(null, [Validators.required]),
+        vacancies: new FormControl(null, [Validators.required]),
         active: new FormControl(true),
       });
     }
@@ -73,7 +73,7 @@ export class CandidateDialogComponent implements OnInit {
         full_name: new FormControl(this.value.full_name, [Validators.required]),
         email: new FormControl(this.value.email, [Validators.required]),
         number: new FormControl(this.value.number, [Validators.required]),
-        address: new FormControl(this.value.address, [Validators.required]),
+        vacancies: new FormControl(this.value.vacancies, [Validators.required]),
         path: new FormControl(this.value.path),
         active: new FormControl(true),
         created_by: new FormControl(this.value.created_by),

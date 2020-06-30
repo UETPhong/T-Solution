@@ -16,7 +16,7 @@
             </mat-form-field>
             <mat-form-field class="example-full-width" appearance="outline">
                 <mat-label>Vị trí ứng tuyển (*)</mat-label>
-                <mat-select formControlName="address">
+                <mat-select formControlName="vacancies">
                     <mat-option *ngFor="let option of listRecruitment" [value]="option.title">
                         {{option.title}}
                     </mat-option>

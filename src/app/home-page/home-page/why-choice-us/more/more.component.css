@@ -1,0 +1,51 @@
+section {
+    background-color: #1b9ad6;
+}
+
+.title {
+    width: 100vw;
+    height: 34vh;
+    padding-top: 7rem;
+    padding-bottom: 2rem;
+    text-align: center;
+}
+
+.title h1 {
+    font-size: 2rem;
+    color: #fff;
+    font-weight: bold;
+    font-family: 'GothamR', sans-serif;
+}
+
+.wrap-content {
+    background-color: #fff;
+    padding: 0 3rem;
+    padding-bottom: 20px;
+    position: relative;
+}
+
+.content {
+    background-color: #ffffff;
+    padding: 2rem 2.5rem;
+    box-shadow: 0 1px #fff inset, 0 1px 3px rgba(34, 25, 25, 0.4);
+    position: relative;
+    top: -3rem;
+    text-align: center;
+}
+
+.content h2 {
+    max-width: 550px;
+    font-size: 24px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #f9a51a;
+    margin-bottom: 30px;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 0%);
+}
+
+.content p {
+    font-family: 'GothamR', sans-serif;
+    font-size: 1rem;
+}

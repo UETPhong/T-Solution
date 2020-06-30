@@ -1,15 +1,23 @@
+* {
+    color: #fff
+}
+
 section {
+    background-image: url(../../../../assets/img/testimonial_Background.png);
+    background-attachment: fixed;
+    background-size: contain;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-column-gap: 1rem;
-    margin: 7rem 3rem 3rem 3rem;
+    padding: 7rem 3rem 3rem 3rem;
 }
 
 section h1 {
     grid-column: 1/5;
-    font-size: 4rem;
-    color: rgb(173, 154, 154);
-    margin-bottom: 5rem;
+    font-size: 3rem;
+    font-weight: 700;
+    /* color: #ad9a9a; */
+    margin-bottom: 5rem
 }
 
 .information-content-content {
@@ -21,5 +29,5 @@ section h1 {
 }
 
 .service-content {
-    color: black;
+    color: #fff
 }

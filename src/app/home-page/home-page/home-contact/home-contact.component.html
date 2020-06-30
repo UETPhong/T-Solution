@@ -1,0 +1,37 @@
+<section>
+    <div class="wrap">
+        <h2>Hãy để chúng tôi kết nối với bạn</h2>
+        <div class="content">
+            <div class="img-contact">
+                <img src="../../../../assets/img/Illustration@2x.png" alt="" width="100%">
+            </div>
+            <div class="form-contact ">
+                <form [formGroup]="formContact">
+                    <div class="form-group">
+                        <label>Xin chào! Tên bạn là gì?</label>
+                        <input type="text" class="form-control" placeholder="Tên của bạn" formControlName="full_name">
+                    </div>
+                    <div class="form-group">
+                        <label>Làm thế nào chúng tôi có thể liên lạc với bạn?</label>
+                        <input type="text" class="form-control" placeholder="Email của bạn" formControlName="email">
+                    </div>
+                    <div class="form-group ">
+                        <label>Lựa chọn lĩnh vực bạn quan tâm</label>
+                        <div class="checkbox">
+                            <label formArrayName="checkbox_value" *ngFor="let r of formContact.controls.checkbox_value.controls; let i = index">
+                            <input type="checkbox" [formControlName]="i" /> {{careers[i].name}} 
+                            </label>
+                        </div>
+                    </div>
+                    <!-- <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="customCheck1">
+                        <label class="custom-control-label" for="customCheck1">Đăng ký nhận thông tin từ Tuyển dụng T-Solution</label>
+                    </div> -->
+                </form>
+                <div class="d-flex align-items-center">
+                    <button class="btn btn-primary btn-lg" (click)="sentEmail()">Gửi </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -21,7 +21,7 @@ export class BannerComponent implements OnInit {
   getAllBanners() {
     this.BannersService.getBanners().subscribe(r => {
       this.banners = r['data']
-      console.log('check1',this.banners);
+      // console.log('check1',this.banners);
     })
   }
 }

@@ -14,12 +14,12 @@ import { LayoutComponent } from './home-page/layout/layout.component';
 
 export const routes: Routes = [
   { path: 'admin', redirectTo: 'dashboard', pathMatch: 'full', },
-  { path: '', redirectTo: 'homepage', pathMatch: 'full', },
+  { path: '', redirectTo: 'home', pathMatch: 'full', },
   { path: '404', component: P404Component, data: { title: 'Page 404' } },
   { path: '500', component: P500Component, data: { title: 'Page 500' } },
   { path: 'login', component: LoginComponent, data: { title: 'Login Page' } },
   { path: 'register', component: RegisterComponent, data: { title: 'Register Page' } },
-  { path: 'home', component: RtHomepageComponent },
+  // { path: 'home', component: RtHomepageComponent },
   {
     path: '', component: DefaultLayoutComponent, canActivate: [AuthGuard], data: { title: 'Admin' },
     children: [
@@ -48,7 +48,7 @@ export const routes: Routes = [
   {
     path: '', component: LayoutComponent, data: { title: 'home' },
     children: [
-      { path: 'homepage', loadChildren: () => import('./home-page/home-page/home-page.module').then(m => m.HomePageModule) },
+      { path: 'home', loadChildren: () => import('./home-page/home-page/home-page.module').then(m => m.HomePageModule) },
       { path: 'recruitment', loadChildren: () => import('./home-page/recruitment/recruitment.module').then(m => m.RecruitmentModule) },
       { path: 'contact', loadChildren: () => import('./home-page/contact/contact.module').then(m => m.ContactModule) },
     ]

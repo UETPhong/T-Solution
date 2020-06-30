@@ -7,9 +7,10 @@ section {
 
 section h1 {
     grid-column: 1/4;
-    font-size: 4rem;
     color: rgb(173, 154, 154);
     margin-bottom: 5rem;
+    font-size: 3rem;
+    font-weight: bold;
 }
 
 section h1 a img {

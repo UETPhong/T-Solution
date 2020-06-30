@@ -21,7 +21,7 @@ export class InformationComponent implements OnInit {
   getAllArticles() {
     this.ArticlesService.getArticles().subscribe(r => {
       this.articles = r['data']
-      console.log('check2', this.articles);
+      // console.log('check2', this.articles);
     })
   }
 

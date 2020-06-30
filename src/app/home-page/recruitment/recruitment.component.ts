@@ -75,12 +75,21 @@ export class RecruitmentComponent implements OnInit {
   // open dialog function
   openDialog(value) {
     const dialogRef = this.dialog.open(RecruitmentApplyDialogComponent, {panelClass: 'custom-dialog-container' ,
-      maxWidth: '100',
+      maxWidth: '40vw',
       data: { value }
     });
     dialogRef.afterClosed().subscribe(result => {
       // this.getAllRecruitments();
     });
+  }
+
+  compare(a, b): number {
+    if (a.id > b.id) {
+      return -1;
+    }
+    if (a.id < b.id) {
+      return 1;
+    }
   }
 
   firstPage() {

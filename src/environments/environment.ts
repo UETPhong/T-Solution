@@ -7,6 +7,8 @@ export const environment = {
   production: false,
   apiUrl:'http://localhost:1818',
   localLink : 'http://localhost:1818/',
+  // apiUrl:'http://localhost:44351/',
+  // localLink : 'http://localhost:44351/',
   home:'http://localhost:4201',
   // apiUrl:'http://14.231.201.172:44351',
   // localLink : 'http:/14.231.201.172:44351',

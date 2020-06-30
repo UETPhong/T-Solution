@@ -1,0 +1,49 @@
+<section>
+    <div class="wrap">
+        <div class="search">
+            <form [formGroup]="formSearch">
+                <div class="form-group">
+                    <label>Từ khóa</label>
+                    <input type="text" class="form-control" placeholder="" formControlName="keywords">
+                </div>
+                <div class="form-group">
+                    <label>Ngành nghề</label>
+                    <select class="form-control" formControlName="career_id">
+                        <option value="">Tất cả ...</option>
+                        <option *ngFor="let r of careers" [value]="r.id">{{r.name}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Địa điểm</label>
+                    <select class="form-control" formControlName="city_province_id">
+                        <option value="">Tất cả ...</option>
+                        <option *ngFor="let r of citys"  [value]="r.id">{{r.name}}</option>
+                    </select>
+                </div>
+            </form>
+            <div class="d-flex align-items-center">
+                <button class="btn btn-primary btn-lg" (click)="getAllRecruitments()"> Tìm kiếm </button>
+            </div>
+        </div>
+
+        <div class="list-recruitment">
+            <ul>
+                <li *ngFor="let r of recruitments, let i=index">
+                    <a href="javascript:void(0)" [routerLink]="['/recruitment/detail',r.id]" *ngIf="i<6">
+                        <i class="fa fa-thumb-tack" aria-hidden="true"></i> &nbsp; {{r.title}}
+                        <span class="span-news">New </span>
+                        <span class="span-hot">Hot</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="content">
+        <h2>T-Solution tuyển dụng liên tục các vị trí trọng yếu</h2>
+        <p>Tại T-Solution, mỗi vị trí tuyển dụng không chỉ đơn giản là một cơ hội việc làm, mà đó có thể là niềm hạnh phúc về một bước tiến trong sự nghiệp của bạn, đồng thời là sự hi vọng về một nhân tố tài năng đối với sự phát triển của công ty. Dù bạn
+            lựa chọn theo đuổi công việc quản lý hay tập trung phát triển chuyên môn, CMC đều nỗ lực hết sức để đem đến cho bạn những cơ hội tốt nhất để thăng tiến.</p>
+        <a class="btn btn-primary btn-lg" href="javascript:void(0)" [routerLink]="['/recruitment']"> Xem thêm &nbsp; <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+        </a>
+
+    </div>
+</section>
